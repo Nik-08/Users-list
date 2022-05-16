@@ -1,0 +1,24 @@
+.form__input {
+  max-width: 211px;
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  color: rgba(0, 0, 0);
+  outline: none;
+}
+
+.form__input:disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+.form__input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.notValid {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+}

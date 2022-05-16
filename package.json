@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,13 +11,26 @@
     "@types/node": "^16.11.33",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.3",
+    "classnames": "^2.3.1",
+    "concurrently": "^7.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "formik": "^2.2.9",
+    "json-server": "^0.17.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-redux": "^8.0.1",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "sass": "^1.51.0",
     "typescript": "^4.6.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "server": "json-server -w server/db.json -p 3001",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -26,7 +40,54 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "import/order": [
+        "error",
+        {
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": false
+          },
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            [
+              "parent",
+              "sibling",
+              "index",
+              "object"
+            ],
+            "type"
+          ],
+          "newlines-between": "always",
+          "pathGroups": [
+            {
+              "pattern": "src/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "store/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "pages/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "components/**",
+              "group": "internal"
+            }
+          ],
+          "pathGroupsExcludedImportTypes": [
+            "react",
+            "react-native",
+            "type"
+          ]
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [

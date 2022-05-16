@@ -1,0 +1,14 @@
+.content {
+  padding: 20px 30px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 20px 10px;
+  }
+
+  .content__title {
+    margin-bottom: 15px;
+  }
+}
